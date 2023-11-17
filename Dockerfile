@@ -39,7 +39,10 @@ RUN zypper --non-interactive update && \
         file \
         patterns-devel-base-devel_basis \
         awk \
+        gcc-c++ \
+        lsb-release \
         openssh \
+        redis \
         && zypper clean --all
 
 
@@ -68,6 +71,9 @@ ENV USER docker
 USER docker
 ENV PATH /home/docker/.local/bin:$PATH
 ENV LD_LIBRARY_PATH /usr/lib:$LD_LIBRARY_PATH
+ENV MYSQLCLIENT_CFLAGS -I/usr/include/mysql -I/usr/include/mysql/mysql
+ENV MYSQLCLIENT_LDFLAGS -L/usr/lib64/ -lmariadb
+
 
 # Avoid first use of sudo warning. c.f. https://askubuntu.com/a/22614/781671
 RUN touch $HOME/.sudo_as_admin_successful
