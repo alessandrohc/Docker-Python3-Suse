@@ -39,6 +39,8 @@ RUN zypper --non-interactive update && \
         file \
         patterns-devel-base-devel_basis \
         awk \
+        jpegoptim \
+        optipng \
         gcc-c++ \
         lsb-release \
         openssh \
