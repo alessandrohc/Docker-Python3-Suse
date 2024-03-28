@@ -8,6 +8,8 @@ SHELL [ "/bin/bash", "-c" ]
 ARG PYTHON_VERSION_TAG=3.10.13
 ARG LINK_PYTHON_TO_PYTHON3=0
 
+# Precisa instalar posteriormente: https://packagehub.suse.com/packages/jpegoptim/ e https://packagehub.suse.com/packages/optipng/
+
 # Update and install packages
 RUN zypper --non-interactive update && \
     zypper --non-interactive install \
@@ -39,8 +41,6 @@ RUN zypper --non-interactive update && \
         file \
         patterns-devel-base-devel_basis \
         awk \
-        jpegoptim \
-        optipng \
         gcc-c++ \
         lsb-release \
         openssh \
